@@ -4,6 +4,7 @@ from app.handlers import router
 from dotenv import load_dotenv
 import os
 from aiogram import Bot, Dispatcher
+from app.database.models import async_main
 
 
 # Загрузка токена из .env файла
@@ -16,8 +17,15 @@ async def main():
     bot = Bot(token=BOT_TOKEN)
     dp = Dispatcher()
     dp.include_router(router)
-
+    dp.startup.register(startup)
+    dp.shutdown.register(shutdown)
     await dp.start_polling(bot)
+
+async def startup(dispatcher: Dispatcher):
+    await async_main()
+    print('Starting up...')
+async def shutdown(dispatcher: Dispatcher):
+    print('Shutting down...')
 
 if __name__ == '__main__':
     try:

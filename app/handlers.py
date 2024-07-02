@@ -6,28 +6,29 @@ from aiogram.enums import ChatAction
 import app.keyboards as kb
 from aiogram.filters import CommandStart
 import app.builder as builder
+from app.database.request import set_user, get_info, get_employee
 
 router = Router()
 
 
 
-class Reg(StatesGroup):
+class User(StatesGroup):
     name = State()
     number = State()
     contact = State()
     user_id = State()
     chat_id = State()
-    send_to_chat_id = State()
+
 
 
 @router.message(CommandStart())
 async def cmd_start(message: Message, state: FSMContext):
-    await state.set_state(Reg.name)  # Установка состояния Reg.name
+    await state.set_state(User.name)  # Установка состояния User.name
     await message.answer(f'Привет! Для регистрации отправьте свой контакт, кнопка ниже', reply_markup=kb.login)
 
 @router.message(F.contact)
 async def handle_contact(message: Message, state: FSMContext):
-    # Выводим данные контакта в терминал, но тут Вы уже сами решаете, как взаимодействовать с данными. Скорее всего Вам понадобитсья подключить базу данных, для того, чтобы сохранять их, но это не включено в данный вопрос :)
+    # Выводим данные контакта в терминал
     await state.update_data(name = message.contact.first_name)
     await state.update_data(number = message.contact.phone_number)
     await state.update_data(user_id = message.from_user.id)
@@ -39,15 +40,17 @@ async def handle_contact(message: Message, state: FSMContext):
     print('ID пользователя: ' + str(data['user_id']))
     print('ID чата:' + str(data['chat_id']))
     data = await state.get_data()
+    await message.answer(f'Рады видеть тебя, {data['name']}!', reply_markup=kb.main)
     if message.contact.user_id == message.from_user.id:
-        await message.answer(f'Рады видеть тебя, {data['name']}!' , reply_markup=kb.main)
+        await set_user(message.from_user.id, message.contact.first_name, message.contact.phone_number)
         await state.clear()
+
 
 
 @router.message(F.text == 'Войти в аккаунт' )
 async def login(message: Message, state: FSMContext):
-    if Reg.name == None:
-        await message.answer('Авторизация...' + Reg.name)
+    if User.name == None:
+        await message.answer('Авторизация...' + User.name)
         #   в бд поиск аккаунта
 
 
@@ -70,12 +73,12 @@ async def development(message: Message):
 
 @router.message(F.text == 'Инвесторам и акционерам')
 async def investors(message: Message):
-    await message.reply('Информация для инвесторов')
+    await message.reply(str(await get_info('Информация для инвесторов')))
 
 
 @router.message(F.text == 'Клиентам')
 async def clients(message: Message):
-    await message.reply('Информация для клиентов')
+    await message.reply(str(await get_info('Информация для клиентов')))
 
 
 @router.message(F.text == 'Назад')
@@ -85,9 +88,7 @@ async def cmd_start(message: Message):
 
 @router.message(F.text == 'Написать коллеге')
 async def send_to_college(message: Message, bot: Bot):
-    user_id = message.from_user.id
-    chat_info = await bot.get_chat(user_id)
-    await message.answer("Выберите получателя:", reply_markup= builder.choose_college(user_id, chat_info))
+    await message.answer("Выберите получателя:", reply_markup= await builder.choose_college())
 
 @router.message(F.text == 'Тех. поддержка')
 async def ai_chat(message: Message):

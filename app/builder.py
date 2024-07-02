@@ -1,10 +1,15 @@
 from aiogram.types import KeyboardButton, InlineKeyboardButton
 from aiogram.utils.keyboard import ReplyKeyboardBuilder, InlineKeyboardBuilder
+from app.database.request import get_employee
+from app.database.models import User
 
 data = ("Коллега 1", "Коллега 2", "Коллега 3")
 
-def choose_college(user_id, chat_indo):
+async def choose_college():
+    ids = ['1', '2', '3']
+    print(ids)
     keyboard = InlineKeyboardBuilder()
-    for college in data:
-        keyboard.add(InlineKeyboardButton(text=college, url = f'tg://user?id={user_id}'))
+    for i in ids:
+        keyboard.add(InlineKeyboardButton(text=i, url = f'tg://user?id={i}'))
     return keyboard.adjust(2).as_markup()
+
