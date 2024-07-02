@@ -5,7 +5,8 @@ from sqlalchemy import select, update, delete, desc
 
 async def set_user(tg_id, nickname,phone_number):
     async with async_session() as session:
-        user = await session.scalar(select(User).where(User.tg_id == tg_id,User.nickname == nickname,
+        user = await session.scalar(select(User).where(User.tg_id == tg_id,
+                                                       User.nickname == nickname,
                                                        User.phone_number == phone_number))
 
         if not user:
@@ -20,10 +21,8 @@ async def get_info(id):
 
 
 
-async def get_employee():
+async def get_employee() -> list[User]:
     async with async_session() as session:
-        result = await session.execute(select(User.tg_id))
-        print(result.scalars().all())
-        list[int].copy(result.scalars().all())
-        print(list[int])
+        result = await session.execute(select(User))
+       # print(result.scalars().all())
         return result.scalars().all()

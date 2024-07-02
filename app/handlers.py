@@ -88,6 +88,7 @@ async def cmd_start(message: Message):
 
 @router.message(F.text == 'Написать коллеге')
 async def send_to_college(message: Message, bot: Bot):
+    await builder.get_list()
     await message.answer("Выберите получателя:", reply_markup= await builder.choose_college())
 
 @router.message(F.text == 'Тех. поддержка')
