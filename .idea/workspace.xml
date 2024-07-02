@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c112a587-e906-420a-87ca-43f8e2d87d62" name="Changes" comment="broken messages sending">
-      <change afterPath="$PROJECT_DIR$/app/builder.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/generator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="c112a587-e906-420a-87ca-43f8e2d87d62" name="Changes" comment="generators not work">
+      <change afterPath="$PROJECT_DIR$/app/database/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/database/request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/builder.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/builder.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/handlers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/keyboards.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/keyboards.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,21 +26,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "drars38"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;drars38&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/drars38/tg_bot",
-    "accountId": "f617fd78-3608-45f1-8cff-afb2a213c87c"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/drars38/tg_bot&quot;,
+    &quot;accountId&quot;: &quot;f617fd78-3608-45f1-8cff-afb2a213c87c&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2icjklBghxqMYk5oVQSXBPOPrLf" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -50,6 +50,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Python.generator.executor": "Run",
+    "Python.request.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master"
   }
@@ -78,7 +79,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719797230602</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="generators not work">
+      <option name="closed" value="true" />
+      <created>1719878571797</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1719878571797</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -94,6 +103,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="broken messages sending" />
-    <option name="LAST_COMMIT_MESSAGE" value="broken messages sending" />
+    <MESSAGE value="generators not work" />
+    <option name="LAST_COMMIT_MESSAGE" value="generators not work" />
   </component>
 </project>
