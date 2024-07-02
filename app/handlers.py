@@ -1,10 +1,11 @@
 from aiogram.types import Message, CallbackQuery
-from aiogram import Router, F
+from aiogram import Router, F, Bot
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
 from aiogram.enums import ChatAction
 import app.keyboards as kb
 from aiogram.filters import CommandStart
+import app.builder as builder
 
 router = Router()
 
@@ -16,6 +17,7 @@ class Reg(StatesGroup):
     contact = State()
     user_id = State()
     chat_id = State()
+    send_to_chat_id = State()
 
 
 @router.message(CommandStart())
@@ -82,10 +84,18 @@ async def cmd_start(message: Message):
 
 
 @router.message(F.text == 'Написать коллеге')
-async def send_to_college(message: Message):
-    await message.answer("Введите сообщение:", reply_markup= kb.message_confirm)
+async def send_to_college(message: Message, bot: Bot):
+    user_id = message.from_user.id
+    chat_info = await bot.get_chat(user_id)
+    await message.answer("Выберите получателя:", reply_markup= builder.choose_college(user_id, chat_info))
 
+@router.message(F.text == 'Тех. поддержка')
+async def ai_chat(message: Message):
+    await message.reply('Интеграция ии')
 
+@router.message(F.text == 'Развлечения')
+async def ai_chat(message: Message):
+    await message.reply('Интеграция gamee')
 @router.message(F.user_shared)
 async def on_user_shared(message: Message):
     print(
@@ -99,9 +109,12 @@ async def on_user_shared(message: Message):
 async def send_message(message: Message):
     user_name = str(message.from_user.full_name)
     user_url = str(message.from_user.url)
-    await message.answer(f'Вам пришло сообщение от <a href={user_url}>{user_name}</a>', parse_mode='HTML')
+    await message.answer(f'Вам пришло сообщение от <a href="{user_url}">{user_name}</a>', parse_mode='HTML')
 
 
+@router.message(F.data.startswith('send_to_'))
+async def inp_message(callback: CallbackQuery):
+    await callback.message.answer('Ваша корзина пуста.')
 
 @router.message(F.text == 'Отправить')
 async def on_user_send(message: Message):
