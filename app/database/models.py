@@ -1,4 +1,4 @@
-from sqlalchemy import ForeignKey, String, BigInteger
+from sqlalchemy import ForeignKey, String, BigInteger, Boolean
 from sqlalchemy.orm import Mapped, mapped_column, DeclarativeBase, relationship
 from sqlalchemy.ext.asyncio import AsyncAttrs, async_sessionmaker, create_async_engine
 
@@ -20,6 +20,8 @@ class User(Base):
     tg_id = mapped_column(BigInteger, primary_key=True)
     nickname = mapped_column(String)
     phone_number = mapped_column(BigInteger)
+    is_admin = mapped_column(Boolean, default=False)
+
 
 class Info(Base):
     __tablename__ = 'data'

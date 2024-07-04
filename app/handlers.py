@@ -6,7 +6,7 @@ from aiogram.enums import ChatAction
 import app.keyboards as kb
 from aiogram.filters import CommandStart
 import app.builder as builder
-from app.database.request import set_user, get_info, get_employee
+
 
 router = Router()
 
@@ -88,12 +88,19 @@ async def cmd_start(message: Message):
 
 @router.message(F.text == 'Написать коллеге')
 async def send_to_college(message: Message, bot: Bot):
-    await builder.get_list()
     await message.answer("Выберите получателя:", reply_markup= await builder.choose_college())
 
 @router.message(F.text == 'Тех. поддержка')
-async def ai_chat(message: Message):
-    await message.reply('Интеграция ии')
+async def chat(message: Message, bot: Bot):
+    help_user_id = message.from_user.id
+    msg = message.answer(message.chat.id, 'Задайте вопрос', reply_markup=kb.message_confirm)
+
+
+
+
+
+
+
 
 @router.message(F.text == 'Развлечения')
 async def ai_chat(message: Message):
