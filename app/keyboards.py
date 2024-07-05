@@ -41,10 +41,25 @@ login = ReplyKeyboardMarkup(
 user_keyboard = ReplyKeyboardMarkup(
     keyboard=[
         [KeyboardButton(text='Помощь')],
-        [KeyboardButton(text='Зарегистрироваться', request_contact=True)]
-    ],
-    resize_keyboard=True
+        [KeyboardButton(text='Зарегистрироваться', request_contact=True)],
+        [KeyboardButton(text='О компании'), KeyboardButton(text='Задать вопрос')],
+        [KeyboardButton(text='Инвесторам и акционерам'), KeyboardButton(text='Клиентам')],
+        [KeyboardButton(text='Войти в аккаунт', request_contact=True)]
+        ],
+    resize_keyboard=True , input_field_placeholder='Выберите пункт меню.'
 )
+
+user_keyboard_after_login = ReplyKeyboardMarkup(
+    keyboard=[
+        [KeyboardButton(text='Помощь')],
+        [KeyboardButton(text='Зарегистрироваться', request_contact=True)],
+        [KeyboardButton(text='О компании'), KeyboardButton(text='Задать вопрос')],
+        [KeyboardButton(text='Инвесторам и акционерам'), KeyboardButton(text='Клиентам')],
+        [KeyboardButton(text='Войти в аккаунт', request_contact=True)]
+        ],
+    resize_keyboard=True , input_field_placeholder='Выберите пункт меню.'
+)
+
 
 # Основная клавиатура для администраторов
 admin_keyboard = ReplyKeyboardMarkup(
