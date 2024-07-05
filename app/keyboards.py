@@ -51,11 +51,9 @@ user_keyboard = ReplyKeyboardMarkup(
 
 user_keyboard_after_login = ReplyKeyboardMarkup(
     keyboard=[
-        [KeyboardButton(text='Помощь')],
-        [KeyboardButton(text='Зарегистрироваться', request_contact=True)],
+        [KeyboardButton(text='Помощь')], [KeyboardButton(text='История запросов')],
         [KeyboardButton(text='О компании'), KeyboardButton(text='Задать вопрос')],
-        [KeyboardButton(text='Инвесторам и акционерам'), KeyboardButton(text='Клиентам')],
-        [KeyboardButton(text='Войти в аккаунт', request_contact=True)]
+        [KeyboardButton(text='Инвесторам и акционерам'), KeyboardButton(text='Клиентам')]
         ],
     resize_keyboard=True , input_field_placeholder='Выберите пункт меню.'
 )

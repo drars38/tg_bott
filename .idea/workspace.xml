@@ -4,10 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c112a587-e906-420a-87ca-43f8e2d87d62" name="Changes" comment="общение с тех. поддержкой налажено">
+    <list default="true" id="c112a587-e906-420a-87ca-43f8e2d87d62" name="Changes" comment="админу проще отвечать полльзователям">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/bot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/builder.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/generator.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/handlers.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/keyboards.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/keyboards.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/builder.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/request.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/generator.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyboards.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +133,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720079570658</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="админу проще отвечать полльзователям">
+      <option name="closed" value="true" />
+      <created>1720142532317</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1720142532317</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -138,6 +161,7 @@
     <MESSAGE value="get_employee in request.py работает странно, пустой массив возвращает" />
     <MESSAGE value="что то с типом данных у list в get_employee()" />
     <MESSAGE value="общение с тех. поддержкой налажено" />
-    <option name="LAST_COMMIT_MESSAGE" value="общение с тех. поддержкой налажено" />
+    <MESSAGE value="админу проще отвечать полльзователям" />
+    <option name="LAST_COMMIT_MESSAGE" value="админу проще отвечать полльзователям" />
   </component>
 </project>
